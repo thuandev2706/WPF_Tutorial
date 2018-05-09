@@ -4,8 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Controls"
-        mc:Ignorable="d"
+        xmlns:core="clr-namespace:System;assembly=mscorlib" 
         Title="MainWindow" Height="350" Width="566.466">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="myEnum" 
+                            MethodName="GetValues" 
+                            ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:TypeExtension Type="local:Party" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <Grid>
         <Button x:Name="button" Content="Click Me" HorizontalAlignment="Left" Margin="336,133,0,0" VerticalAlignment="Top" Width="99" Click="button_Click" Height="45"/>
         <Calendar HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
@@ -22,7 +31,7 @@
                 <CalendarDateRange Start="5/30/2018" End="5/30/2018"/>
             </Calendar.BlackoutDates>
             <Calendar.SelectedDates>
-                <sys:DateTime>5/9/2018</sys:DateTime>                
+                <sys:DateTime>5/9/2018</sys:DateTime>
             </Calendar.SelectedDates>
             <Calendar.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -58,6 +67,23 @@
                 </ContextMenu>
             </TextBox.ContextMenu>
         </TextBox>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="194,183,0,0" VerticalAlignment="Top" Height="126" Width="347"
+                  AlternatingRowBackground="LightBlue"
+                  AlternationCount="2"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" 
+                                    Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Title" 
+                                    Binding="{Binding Title}" />
+                <DataGridCheckBoxColumn Header="ReElected?" 
+                                        Binding="{Binding WasReElected}"/>
+                <DataGridComboBoxColumn Header="Party" 
+                                        SelectedItemBinding="{Binding Affiliation}" 
+                                        ItemsSource="{Binding 
+                        Source={StaticResource myEnum}}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>
