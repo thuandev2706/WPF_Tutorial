@@ -1,0 +1,63 @@
+﻿<Window x:Class="Controls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="566.466">
+    <Grid>
+        <Button x:Name="button" Content="Click Me" HorizontalAlignment="Left" Margin="336,133,0,0" VerticalAlignment="Top" Width="99" Click="button_Click" Height="45"/>
+        <Calendar HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
+                  SelectionMode="MultipleRange"
+                  IsTodayHighlighted="False"
+                  DisplayDate="5/1/2018"
+                  DisplayDateEnd="5/31/2018"
+                  SelectedDatesChanged="Calendar_SelectedDatesChanged"
+                  xmlns:sys="clr-namespace:System;assembly=mscorlib">
+            <Calendar.BlackoutDates>
+                <CalendarDateRange Start="5/1/2018" End="5/4/2018"/>
+                <CalendarDateRange Start="5/16/2018" End="5/16/2018"/>
+                <CalendarDateRange Start="5/23/2018" End="5/25/2018"/>
+                <CalendarDateRange Start="5/30/2018" End="5/30/2018"/>
+            </Calendar.BlackoutDates>
+            <Calendar.SelectedDates>
+                <sys:DateTime>5/9/2018</sys:DateTime>                
+            </Calendar.SelectedDates>
+            <Calendar.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFE4EAF0" Offset="0"/>
+                    <GradientStop Color="#FFECF0F4" Offset="0.16"/>
+                    <GradientStop Color="#FFFCFCFD" Offset="0.16"/>
+                    <GradientStop Color="#FFD80320" Offset="1"/>
+                </LinearGradientBrush>
+            </Calendar.Background>
+        </Calendar>
+        <CheckBox x:Name="checkBox1" Content="Two States" HorizontalAlignment="Left" Margin="227,31,0,0" VerticalAlignment="Top" Width="90" Checked="HandleCheck" Unchecked="HandleUnchecked"/>
+        <CheckBox x:Name="checkBox2" Content="Three States" HorizontalAlignment="Left" Margin="227,68,0,0" VerticalAlignment="Top" Width="90" IsThreeState="True" Indeterminate="HandleThirdState" Checked="HandleCheck" Unchecked="HandleUnchecked"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="336,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="336,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="227,101,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Combo_SelectionChanged">
+            <ComboBoxItem Content="Item #1"/>
+            <ComboBoxItem Content="Item #2"/>
+            <ComboBoxItem Content="Item #3"/>
+        </ComboBox>
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="413,101,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" SelectionChanged="Combo1_SelectionChanged">
+            <ComboBoxItem Content="Item #1"/>
+            <ComboBoxItem Content="Item #2"/>
+            <ComboBoxItem Content="Item #3"/>
+        </ComboBox>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="126" Margin="10,183,0,0" TextWrapping="Wrap" Text="Hi, this is WPF tutorial" VerticalAlignment="Top" Width="179">
+            <TextBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="_Bold" IsCheckable="True" Checked="Bold_Checked" Unchecked="Bold_Unchecked"/>
+                    <MenuItem Header="_Italic" IsCheckable="True" Checked="Italic_Checked" Unchecked="Italic_Unchecked"/>
+                    <Separator />
+                    <MenuItem Header="Increase Font Size" Click="IncreaseFont_Click"/>
+                    <MenuItem Header="Decrease Font Size" Click="DecreaseFont_Click"/>
+                </ContextMenu>
+            </TextBox.ContextMenu>
+        </TextBox>
+
+    </Grid>
+</Window>
