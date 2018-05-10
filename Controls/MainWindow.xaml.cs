@@ -300,6 +300,13 @@ namespace Controls
             }
 
         }
+        //Slider event
+        private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            int val = Convert.ToInt32(e.NewValue);
+            string msg = String.Format("{0}", val);
+            this.txtslider.Text = msg;
+        }
     }
 } 
 

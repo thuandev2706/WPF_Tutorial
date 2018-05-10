@@ -1,11 +1,12 @@
-﻿<Window x:Class="Controls.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Controls"
         xmlns:core="clr-namespace:System;assembly=mscorlib" 
-        Title="MainWindow" Height="603.521" Width="1025.352">
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="Controls.MainWindow" 
+        Title="MainWindow" Height="800" Width="1025.352">
     <Window.Resources>
         <ObjectDataProvider x:Key="myEnum" 
                             MethodName="GetValues" 
@@ -17,13 +18,14 @@
     </Window.Resources>
     <Grid Margin="0,0,0,0">
         <Button x:Name="button" Content="Click Me" HorizontalAlignment="Left" Margin="227,153,0,0" VerticalAlignment="Top" Width="99" Click="button_Click" Height="45"/>
-        <Calendar HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"
+        <Calendar
+                  xmlns:sys="clr-namespace:System;assembly=mscorlib" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"
                   SelectionMode="MultipleRange"
                   IsTodayHighlighted="False"
                   DisplayDate="5/1/2018"
                   DisplayDateEnd="5/31/2018"
                   SelectedDatesChanged="Calendar_SelectedDatesChanged"
-                  xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                  >
             <Calendar.BlackoutDates>
                 <CalendarDateRange Start="5/1/2018" End="5/4/2018"/>
                 <CalendarDateRange Start="5/16/2018" End="5/16/2018"/>
@@ -80,8 +82,7 @@
                                         Binding="{Binding WasReElected}"/>
                 <DataGridComboBoxColumn Header="Party" 
                                         SelectedItemBinding="{Binding Affiliation}" 
-                                        ItemsSource="{Binding 
-                        Source={StaticResource myEnum}}" />
+                                        ItemsSource="{Binding Source={StaticResource myEnum}}" />
             </DataGrid.Columns>
         </DataGrid>
         <DatePicker HorizontalAlignment="Left" Margin="568,42,0,0" VerticalAlignment="Top" Width="103" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
@@ -143,7 +144,7 @@
         <Label x:Name="lblstatus" Content="" HorizontalAlignment="Left" Margin="840,351,0,0" VerticalAlignment="Top" Width="167" />
         <Button x:Name="btnlogin" Content="Login" HorizontalAlignment="Left" Margin="744,357,0,0" VerticalAlignment="Top" Width="75" Click="btnlogin_Click"/>
         <CheckBox x:Name="cbPopup" Content="Check Me" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" />
-        <Popup IsOpen="{Binding ElementName=cbPopup,Path=IsChecked}" 
+        <Popup IsOpen="{Binding IsChecked, ElementName=cbPopup}" 
                    PlacementTarget="{Binding ElementName=cbPopup}"
                    AllowsTransparency="True" PopupAnimation="Fade">
             <Canvas Width="Auto" Height="Auto" Background="LightGray" Margin="10,422,882,51">
@@ -153,8 +154,31 @@
                 <TextBlock TextWrapping="Wrap" Foreground="Blue" Text="Hi, this is Popup"/>
             </Canvas>
         </Popup>
-        <Border BorderThickness="5" BorderBrush="Green" Width="100" Height="100" Margin="0,420,917,53">
-            
-        </Border>
+        <Border BorderThickness="5" BorderBrush="Green" Margin="0,436,740,283"/>
+        <Border BorderThickness="5" BorderBrush="Green" Margin="0,486,740,226"/>
+        <TextBlock x:Name="txtbProcess1" HorizontalAlignment="Left" Margin="46,443,0,0" TextWrapping="Wrap" Text="Value-Based Progress Bar" VerticalAlignment="Top" Width="189" TextAlignment="Center"/>
+        <TextBlock x:Name="txtbProcess2" HorizontalAlignment="Left" Margin="46,491,0,0" TextWrapping="Wrap" Text="Indeterminate Progress Bar" VerticalAlignment="Top" Width="189" TextAlignment="Center"/>
+        <ProgressBar x:Name="pg1" Value="100" Margin="10,459,750,295" Maximum="200" Height="15" IsIndeterminate="False" />
+        <ProgressBar x:Name="pg2" Value="100" Margin="0,512,760,242" Maximum="200" Height="15" IsIndeterminate="True" />
+        <ScrollViewer  
+                    HorizontalScrollBarVisibility="Auto"  
+                    VerticalScrollBarVisibility="Auto" Margin="0,556,712,10" >
+            <TextBlock Width="339" Height="206" TextWrapping="Wrap" 
+              Text=" This license governs use of code marked as sample or  example available on this web site without a license agreement, as provided  under the section above titled NOTICE SPECIFIC TO SOFTWARE AVAILABLE ON THIS  WEB SITE. If you use such code (the software), you accept this license. If you  do not accept the license, do not use the software.Lorem ipsum dolor sit amet,  consectetur adipiscing elit. Sed ac mi ipsum. Phasellus vel malesuada mauris.  Donec pharetra, enim sit amet mattis tincidunt, felis nisi semper lectus, vel  porta diam nisi in augue. Pellentesque lacus tortor, aliquam et faucibus id,  rhoncus ut justo. Sed id lectus odio, eget pulvinar diam. Suspendisse eleifend  ornare libero, in luctus purus aliquet non. Sed interdum, sem vitae rutrum  rhoncus, felis ligula ultrices sem, in eleifend eros ante id neque." />
+        </ScrollViewer>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="603,400,0,0" VerticalAlignment="Top" Width="117"
+                Minimum="0" Maximum="100" TickFrequency="2" TickPlacement="BottomRight" ValueChanged="slider_ValueChanged" >
+            <Slider.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFF5DCDC" Offset="1"/>
+                </LinearGradientBrush>
+            </Slider.Background>
+        </Slider>
+        <TextBox x:Name="txtslider" HorizontalAlignment="Left" Height="23" Margin="734,401,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="85" ToolTipService.ToolTip="Value Slider"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="308,390,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="156" Width="199"
+                   FontFamily="Verdana" LineStackingStrategy="MaxHeight" LineHeight="10" Background="#FFE2B1B1" ><Run Text="Use the "/><Run FontSize="15" Text="LineStackingStrategy"/><Run Text="property to determine how a line box is created for each line. A value of "/><Run 
+FontSize="20" Text="MaxHeight"/><Run Text=" specifies that the stack height is the smallest value that contains all the inline elements on that line when those elements are properly aligned."/></TextBlock>
+        <telerik:RadCalculator HorizontalAlignment="Left" Margin="777,485,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
