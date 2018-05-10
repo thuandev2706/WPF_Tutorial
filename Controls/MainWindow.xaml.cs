@@ -28,6 +28,7 @@ namespace Controls
         {
             InitializeComponent();
             dataGrid.ItemsSource = Employee.GetEmployees();
+            GetListViewData();
         }
         //button event
         private void button_Click(object sender, RoutedEventArgs e)
@@ -221,9 +222,84 @@ namespace Controls
                 }
             }
         }
+        //Date Picker event
+        private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var picker = sender as DatePicker;
+            DateTime? date = picker.SelectedDate;
+            if(date == null)
+            {
+                this.Title = "No Date";
+            }
+            else
+            {
+                this.Title = date.Value.ToShortDateString();
+            }
+        }
+        //Message Box event
+        private void ShowMessageBox_Click(object sender, RoutedEventArgs e)
+        {
+            string mstText = "Click any button";
+            string txt = "My Title";
+            MessageBoxButton button = MessageBoxButton.YesNoCancel;
+            MessageBoxResult result = MessageBox.Show(mstText, txt, button);
+            switch(result)
+            {
+                case MessageBoxResult.Yes:
+                    txtmss.Text = "Yes";
+                    break;
+                case MessageBoxResult.No:
+                    txtmss.Text = "No";
+                    break;
+                case MessageBoxResult.Cancel:
+                    txtmss.Text = "Cancel";
+                    break;
+            }
+        }
+        // List view
+        class Person
+        {
+            public string Name { get; set; }
+            public string ID { get; set; }
+            public int Age { get; set; }
+        }
+        private void GetListViewData()
+        {
+            MenList.Items.Add(new Person() { Name = "Ali", ID = "123A", Age = 20 });
+            MenList.Items.Add(new Person() { Name = "Akram", ID = "456X", Age = 35 });
+            MenList.Items.Add(new Person() { Name = "Salman", ID = "333E", Age = 49 });
+        }
+        //Menu
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem item = sender as MenuItem;
+            this.Title = "File: " + item.Header;
+        }
+        private void MenuItem_Click1(object sender, RoutedEventArgs e)
+        {
+            MenuItem item = sender as MenuItem;
+            this.Title = "Edit: " + item.Header;
 
-       
-       
+        }
+        private void MenuItem_Click2(object sender, RoutedEventArgs e)
+        {
+            MenuItem item = sender as MenuItem;
+            this.Title = "View: " + item.Header;
+        }
+
+        // Password Box
+        private void btnlogin_Click(object sender, RoutedEventArgs e)
+        {
+            if(pswbox.Password.ToString() == "wpf12345")
+            {
+                lblstatus.Content = "Login Success";
+            }
+            else
+            {
+                lblstatus.Content = "Wrong Password";
+            }
+
+        }
     }
 } 
 

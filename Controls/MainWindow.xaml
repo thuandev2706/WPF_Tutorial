@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Controls"
         xmlns:core="clr-namespace:System;assembly=mscorlib" 
-        Title="MainWindow" Height="350" Width="566.466">
+        Title="MainWindow" Height="603.521" Width="1025.352">
     <Window.Resources>
         <ObjectDataProvider x:Key="myEnum" 
                             MethodName="GetValues" 
                             ObjectType="{x:Type core:Enum}">
-            <ObjectDataProvider.MethodParameters>
+            <!--<ObjectDataProvider.MethodParameters>
                 <x:TypeExtension Type="local:Party" />
-            </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider.MethodParameters>-->
         </ObjectDataProvider>
     </Window.Resources>
-    <Grid>
-        <Button x:Name="button" Content="Click Me" HorizontalAlignment="Left" Margin="336,133,0,0" VerticalAlignment="Top" Width="99" Click="button_Click" Height="45"/>
-        <Calendar HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
+    <Grid Margin="0,0,0,0">
+        <Button x:Name="button" Content="Click Me" HorizontalAlignment="Left" Margin="227,153,0,0" VerticalAlignment="Top" Width="99" Click="button_Click" Height="45"/>
+        <Calendar HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"
                   SelectionMode="MultipleRange"
                   IsTodayHighlighted="False"
                   DisplayDate="5/1/2018"
@@ -42,21 +42,21 @@
                 </LinearGradientBrush>
             </Calendar.Background>
         </Calendar>
-        <CheckBox x:Name="checkBox1" Content="Two States" HorizontalAlignment="Left" Margin="227,31,0,0" VerticalAlignment="Top" Width="90" Checked="HandleCheck" Unchecked="HandleUnchecked"/>
-        <CheckBox x:Name="checkBox2" Content="Three States" HorizontalAlignment="Left" Margin="227,68,0,0" VerticalAlignment="Top" Width="90" IsThreeState="True" Indeterminate="HandleThirdState" Checked="HandleCheck" Unchecked="HandleUnchecked"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="336,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="336,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="227,101,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Combo_SelectionChanged">
+        <CheckBox x:Name="checkBox1" Content="Two States" HorizontalAlignment="Left" Margin="227,51,0,0" VerticalAlignment="Top" Width="90" Checked="HandleCheck" Unchecked="HandleUnchecked"/>
+        <CheckBox x:Name="checkBox2" Content="Three States" HorizontalAlignment="Left" Margin="227,88,0,0" VerticalAlignment="Top" Width="90" IsThreeState="True" Indeterminate="HandleThirdState" Checked="HandleCheck" Unchecked="HandleUnchecked"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="336,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="336,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="227,121,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Combo_SelectionChanged">
             <ComboBoxItem Content="Item #1"/>
             <ComboBoxItem Content="Item #2"/>
             <ComboBoxItem Content="Item #3"/>
         </ComboBox>
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="413,101,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" SelectionChanged="Combo1_SelectionChanged">
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="413,121,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" SelectionChanged="Combo1_SelectionChanged">
             <ComboBoxItem Content="Item #1"/>
             <ComboBoxItem Content="Item #2"/>
             <ComboBoxItem Content="Item #3"/>
         </ComboBox>
-        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="126" Margin="10,183,0,0" TextWrapping="Wrap" Text="Hi, this is WPF tutorial" VerticalAlignment="Top" Width="179">
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="29" Margin="345,166,0,0" TextWrapping="Wrap" Text="Hi, this is WPF tutorial" VerticalAlignment="Top" Width="179">
             <TextBox.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="_Bold" IsCheckable="True" Checked="Bold_Checked" Unchecked="Bold_Unchecked"/>
@@ -67,7 +67,7 @@
                 </ContextMenu>
             </TextBox.ContextMenu>
         </TextBox>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="194,183,0,0" VerticalAlignment="Top" Height="126" Width="347"
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" Height="182" Width="267"
                   AlternatingRowBackground="LightBlue"
                   AlternationCount="2"
                   AutoGenerateColumns="False">
@@ -84,6 +84,77 @@
                         Source={StaticResource myEnum}}" />
             </DataGrid.Columns>
         </DataGrid>
-
+        <DatePicker HorizontalAlignment="Left" Margin="568,42,0,0" VerticalAlignment="Top" Width="103" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+        <Button x:Name="btnmss" Content="Show Message Box" HorizontalAlignment="Left" Margin="744,42,0,0" VerticalAlignment="Top" Width="117" Height="24" Click="ShowMessageBox_Click"/>
+        <TextBox x:Name="txtmss" HorizontalAlignment="Left" Height="23" Margin="922,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" TextAlignment="Center"/>
+        <ListView x:Name="MenList" HorizontalAlignment="Left" Height="182" Margin="282,203,0,0" VerticalAlignment="Top" Width="305">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="100"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="100"/>
+                    <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Image x:Name="imgrectangle" HorizontalAlignment="Left" Height="100" Margin="591,88,0,0" VerticalAlignment="Top" Width="174" Source="Image\lake.jpg" />
+        <Ellipse x:Name="imageEllipse" HorizontalAlignment="Left" Height="100" Margin="794,88,0,0" VerticalAlignment="Top" Width="200" >
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="Image\mountain.jpg"/>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Label x:Name="label" Content="Label Example in WPF" HorizontalAlignment="Left" Margin="592,203,0,0" VerticalAlignment="Top" Width="415" Height="50"
+               Background="#FFD6BEBE" FontFamily="Snap ITC" FontSize="30" Foreground="#FFBD6B6B" />
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="127" Margin="592,258,0,0" VerticalAlignment="Top" Width="128">
+            <ListBoxItem Content="XAML Tutorial"/>
+            <ListBoxItem Content="WPF Tutorials"/>
+            <ListBoxItem Content="Silverlight Tutorials"/>
+            <ListBoxItem Content="Windows 10 Tutorials"/>
+            <ListBoxItem Content="iOS Tutorials"/>
+        </ListBox>
+        <TextBox x:Name="txtlistbox" HorizontalAlignment="Left" Height="23" Margin="734,258,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.Content, ElementName=listBox}" VerticalAlignment="Top" Width="273" TextAlignment="Center"  />
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="22" Margin="10,3,0,0" VerticalAlignment="Top" Width="997">
+            <MenuItem Header="File">
+                <MenuItem Header="Item 1" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click"/>
+                <MenuItem Header="Item 2" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click"/>
+                <Separator HorizontalAlignment="Left" Width="140"/>
+                <MenuItem  Header="Item 3" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Item 1" HorizontalAlignment="Left" Width="140" 
+        Click="MenuItem_Click1"/>
+                <MenuItem Header="Item 2" HorizontalAlignment="Left" Width="140" 
+        Click="MenuItem_Click1"/>
+                <Separator HorizontalAlignment="Left" Width="140"/>
+                <MenuItem Header="Item 3" HorizontalAlignment="Left" Width="140" 
+        Click="MenuItem_Click1"/>
+            </MenuItem>
+            <MenuItem Header="View">
+                <MenuItem Header="Item 1" HorizontalAlignment="Left" Width="140" 
+        Click="MenuItem_Click2"/>
+                <MenuItem Header="Item 2" HorizontalAlignment="Left" Width="140" 
+        Click="MenuItem_Click2"/>
+                <Separator HorizontalAlignment="Left" Width="140"/>
+                <MenuItem Header="Item 3" HorizontalAlignment="Left" Width="140" 
+        Click="MenuItem_Click2"/>
+            </MenuItem>
+        </Menu>
+        <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Margin="734,298,0,0" VerticalAlignment="Top" Height="25" Width="61"/>
+        <PasswordBox x:Name="pswbox" HorizontalAlignment="Left" Margin="815,298,0,0" VerticalAlignment="Top" Width="192" Height="25" MaxLength="8"/>
+        <Label x:Name="lblstatus" Content="" HorizontalAlignment="Left" Margin="840,351,0,0" VerticalAlignment="Top" Width="167" />
+        <Button x:Name="btnlogin" Content="Login" HorizontalAlignment="Left" Margin="744,357,0,0" VerticalAlignment="Top" Width="75" Click="btnlogin_Click"/>
+        <CheckBox x:Name="cbPopup" Content="Check Me" HorizontalAlignment="Left" Margin="10,400,0,0" VerticalAlignment="Top" />
+        <Popup IsOpen="{Binding ElementName=cbPopup,Path=IsChecked}" 
+                   PlacementTarget="{Binding ElementName=cbPopup}"
+                   AllowsTransparency="True" PopupAnimation="Fade">
+            <Canvas Width="Auto" Height="Auto" Background="LightGray" Margin="10,422,882,51">
+                <Canvas.RenderTransform>
+                    <RotateTransform x:Name="theTransform"/>
+                </Canvas.RenderTransform>
+                <TextBlock TextWrapping="Wrap" Foreground="Blue" Text="Hi, this is Popup"/>
+            </Canvas>
+        </Popup>
+        <Border BorderThickness="5" BorderBrush="Green" Width="100" Height="100" Margin="0,420,917,53">
+            
+        </Border>
     </Grid>
 </Window>
