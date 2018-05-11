@@ -11,7 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6_Dependency_Properties", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7_Routed_Event", "7_Routed_Event\7_Routed_Event.csproj", "{15D63FF5-2E71-45E8-A6E4-2C89A1252DDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controls", "Controls\Controls.csproj", "{242FE712-230C-4E6E-A09B-B15DC4D4DA91}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8-32_Controls", "Controls\8-32_Controls.csproj", "{242FE712-230C-4E6E-A09B-B15DC4D4DA91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "33_Layouts", "33_Layouts\33_Layouts.csproj", "{CA0AEDB7-98BA-4B2B-9204-0419C8DC6559}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{242FE712-230C-4E6E-A09B-B15DC4D4DA91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{242FE712-230C-4E6E-A09B-B15DC4D4DA91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{242FE712-230C-4E6E-A09B-B15DC4D4DA91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA0AEDB7-98BA-4B2B-9204-0419C8DC6559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA0AEDB7-98BA-4B2B-9204-0419C8DC6559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA0AEDB7-98BA-4B2B-9204-0419C8DC6559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA0AEDB7-98BA-4B2B-9204-0419C8DC6559}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
