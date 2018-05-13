@@ -1,0 +1,17 @@
+﻿<Window x:Class="_38_Resources.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_38_Resources"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <SolidColorBrush x:Key="bRsh" Color="Blue"/>
+    </Window.Resources>
+    <StackPanel>
+        <Rectangle Height="50" Margin="20" Fill="{StaticResource bRsh}" />
+        <Rectangle Height="50" Margin="20" Fill="{DynamicResource bRsh}" />
+        <Button x:Name="btnchangeResource" Content="Change Resource" Click="btnchangeResource_Click" Width="100" Height="30"/>
+    </StackPanel>
+</Window>

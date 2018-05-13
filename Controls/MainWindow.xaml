@@ -179,6 +179,6 @@
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="308,390,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="156" Width="199"
                    FontFamily="Verdana" LineStackingStrategy="MaxHeight" LineHeight="10" Background="#FFE2B1B1" ><Run Text="Use the "/><Run FontSize="15" Text="LineStackingStrategy"/><Run Text="property to determine how a line box is created for each line. A value of "/><Run 
 FontSize="20" Text="MaxHeight"/><Run Text=" specifies that the stack height is the smallest value that contains all the inline elements on that line when those elements are properly aligned."/></TextBlock>
-        <telerik:RadCalculator HorizontalAlignment="Left" Margin="777,485,0,0" VerticalAlignment="Top"/>
+      
     </Grid>
 </Window>
